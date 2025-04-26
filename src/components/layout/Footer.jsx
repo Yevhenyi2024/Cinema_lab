@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Film } from 'lucide-react';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,7 +9,7 @@ function Footer() {
     <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/*Опис проекту*/}
+          {/* Logo and Description */}
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Film className="h-7 w-7 text-primary" />
@@ -19,7 +20,7 @@ function Footer() {
             </p>
           </div>
 
-          {/*Посилання*/}
+          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-medium mb-4">Швидкі посилання</h3>
             <ul className="space-y-2">
@@ -30,7 +31,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/*Категорії*/}
+          {/* Categories */}
           <div>
             <h3 className="text-lg font-medium mb-4">Категорії</h3>
             <ul className="space-y-2">
@@ -42,7 +43,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/*Доп інфа*/}
+          {/* Contact */}
           <div>
             <h3 className="text-lg font-medium mb-4">Контакти</h3>
             <address className="not-italic text-gray-400">
@@ -54,7 +55,7 @@ function Footer() {
           </div>
         </div>
 
-        {/*Права проекту*/}
+        {/* Copyright */}
         <div className="border-t border-gray-800 pt-6 mt-6 text-center text-sm text-gray-500">
           <p>&copy; {currentYear} Кіноафіша. Всі права захищені тімлідом</p>
         </div>
