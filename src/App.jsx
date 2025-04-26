@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// Заглушки для сторінок, додамо пізніше
+function Placeholder({ title }) {
+  return <div className="pt-24 text-center text-3xl">{title}</div>;
 }
 
-export default App
+function App() {
+  return (
+    <>
+      <Header />
+      <main className="min-h-screen pt-20">
+        <Routes>
+          <Route path="/" element={<Placeholder title="Головна" />} />
+          <Route path="/showtimes" element={<Placeholder title="Сеанси" />} />
+          <Route path="/favorites" element={<Placeholder title="Улюблені" />} />
+          <Route path="/search" element={<Placeholder title="Пошук" />} />
+          <Route path="*" element={<Placeholder title="Сторінку не знайдено" />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+export default App;
