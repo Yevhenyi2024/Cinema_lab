@@ -4,6 +4,7 @@ import HomePage from './components/pages/HomePage';
 import MovieDetails from './components/pages/MovieDetails';
 import FavoritesPage from './components/pages/FavoritesPage';
 import NotFound from './components/pages/NotFound';
+import SearchPage from './components/pages/SearchPage';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: 'favorites',
         element: <FavoritesPage />
+      },
+      {
+        path: 'search',
+        element: <SearchPage />
       }
     ]
   }

@@ -23,7 +23,7 @@ const MOCK_MOVIES = [
     overview: 'Антон опиняється заблокованим у бліндажі після обстрілу. Він бореться за виживання, використовуючи всі доступні засоби.',
     releaseDate: '2025-04-03',
     director: 'Сергій Касторних',
-    genres: ['Воєнна драма', 'Трилер'],
+    genres: ['Драма', 'Трилер'],
     duration: '1год 45хв',
     trailer: 'https://www.youtube.com/embed/dKoIr3ZJHg0'
   },
@@ -35,7 +35,7 @@ const MOCK_MOVIES = [
     overview: 'Білл, батько п\'ятьох доньок, дізнається про жахливі умови в місцевому монастирі та стикається з моральною дилемою: мовчати чи діяти.',
     releaseDate: '2025-04-03',
     director: 'Тім Мілантс',
-    genres: ['Історична драма'],
+    genres: ['Драма'],
     duration: '1год 38хв',
     trailer: 'https://www.youtube.com/embed/g6K65Z7aX_4'
   },
@@ -47,7 +47,7 @@ const MOCK_MOVIES = [
     overview: 'Молода дівчина та її друзі потрапляють у світ Minecraft і мають знайти шлях назад, долаючи численні випробування.',
     releaseDate: '2025-04-03',
     director: 'Джаред Хесс',
-    genres: ['Пригодницьке фентезі', 'Комедія'],
+    genres: ['Фентезі', 'Комедія'],
     duration: '1год 40хв',
     trailer: 'https://www.youtube.com/embed/DrmFheV9Pyk'
   },
@@ -59,7 +59,7 @@ const MOCK_MOVIES = [
     overview: 'Мустафа Джемілєв, політичний в\'язень, працює на кисневій станції в засланні, що символізує його боротьбу та стійкість.',
     releaseDate: '2025-04-10',
     director: 'Іван Тимченко',
-    genres: ['Біографічна драма'],
+    genres: ['Драма'],
     duration: '1год 50хв',
     trailer: 'https://www.youtube.com/embed/YgtgI7Ab1w4'
   },
@@ -83,7 +83,7 @@ const MOCK_MOVIES = [
     overview: 'Чарлі Геллер, співробітник ЦРУ, після загибелі дружини вирішує самостійно розслідувати теракт, що забрав її життя.',
     releaseDate: '2025-04-10',
     director: 'Джеймс Хоуз',
-    genres: ['Шпигунський трилер'],
+    genres: ['Трилер'],
     duration: '1год 48хв',
     trailer: 'https://www.youtube.com/embed/71-8CIA9G5U'
   },
@@ -95,7 +95,7 @@ const MOCK_MOVIES = [
     overview: 'Колишній детектив з амнезією намагається розкрити стару справу, що може змінити його життя.',
     releaseDate: '2025-04-17',
     director: 'Адам Купер',
-    genres: ['Кримінальний трилер'],
+    genres: ['Трилер'],
     duration: '1год 44хв',
     trailer: 'https://www.youtube.com/embed/TtMpflVp_dE'
   },
@@ -112,6 +112,7 @@ const MOCK_MOVIES = [
     trailer: 'https://www.youtube.com/embed/rXNSCjTKyWg'
   },
 ];
+
 
 export const getMovies = async () => {
   try {
@@ -140,6 +141,36 @@ export const getMovieById = async (id) => {
     console.error(`Помилка отримання фільму з номером ${id}:`, error);
     throw error;
   }
+};
+
+export const searchMovies = async (query) => {
+  const allMovies = await getMovies();
+  const { title, genre, year, rating } = query;
+
+  return allMovies.filter(movie => {
+    const matchesTitle = title ? movie.title.toLowerCase().includes(title.toLowerCase()) : true;
+    const matchesGenre = genre ? movie.genres.includes(genre) : true;
+    const matchesYear = year ? movie.releaseDate.startsWith(year) : true;
+    const matchesRating = rating ? movie.rating >= parseFloat(rating) : true;
+    return matchesTitle && matchesGenre && matchesYear && matchesRating;
+  });
+};
+
+export const getGenresList = async () => {
+  const movies = await getMovies();
+  const genreSet = new Set();
+  movies.forEach(movie => movie.genres.forEach(g => genreSet.add(g)));
+  return Array.from(genreSet);
+};
+
+export const getReleaseYearsList = async () => {
+  const movies = await getMovies();
+  const yearSet = new Set();
+  movies.forEach(movie => {
+    const year = movie.releaseDate.split('-')[0];
+    yearSet.add(year);
+  });
+  return Array.from(yearSet).sort((a, b) => b - a);
 };
 
 const MOCK_ACTORS = {

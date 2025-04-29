@@ -6,6 +6,8 @@ import LoadingSpinner from '../common/LoadingSpinner';
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -26,9 +28,16 @@ function HomePage() {
     fetchMovies();
   }, []);
 
-  if (loading) {
-    return <LoadingSpinner />;
-  }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchQuery(searchInput);
+  };
+
+  const filteredMovies = movies.filter(movie =>
+    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  if (loading) return <LoadingSpinner />;
 
   if (error) {
     return (
@@ -48,15 +57,29 @@ function HomePage() {
     <div className="space-y-8">
       <section>
         <h1 className="text-3xl font-bold mb-6">Актуальні фільми та новинки</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {movies.map(movie => (
-            <MovieCard 
-              key={movie.id} 
-              movie={movie} 
-            />
-          ))}
-        </div>
+
+        <form onSubmit={handleSearch} className="mb-6 flex flex-col sm:flex-row gap-4 sm:items-center">
+          <input
+            type="text"
+            placeholder="Пошук за назвою фільму..."
+            className="w-full sm:w-1/2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            value={searchInput}
+            onChange={e => setSearchInput(e.target.value)}
+          />
+          <button type="submit" className="btn btn-primary w-full sm:w-auto">
+            Пошук
+          </button>
+        </form>
+
+        {filteredMovies.length === 0 ? (
+          <p className="text-gray-600">Фільми не знайдено.</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredMovies.map(movie => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );
