@@ -13,6 +13,7 @@ function Header() {
         
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-secondary transition-colors">Головна</Link>
+          <Link to="/search" className="hover:text-secondary transition-colors">Пошук</Link>
           <Link to="/categories" className="hover:text-secondary transition-colors">Жанри</Link>
           <Link to="/upcoming" className="hover:text-secondary transition-colors">Незабаром</Link>
           <Link to="/favorites" className="hover:text-secondary transition-colors flex items-center">
