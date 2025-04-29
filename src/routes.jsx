@@ -5,6 +5,7 @@ import MovieDetails from './components/pages/MovieDetails';
 import FavoritesPage from './components/pages/FavoritesPage';
 import NotFound from './components/pages/NotFound';
 import SearchPage from './components/pages/SearchPage';
+import SessionsPage from './components/pages/SessionsPage';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: 'search',
         element: <SearchPage />
+      },
+      {
+        path: 'sessions',
+        element: <SessionsPage />
       }
     ]
   }
