@@ -125,6 +125,17 @@ export const getMovies = async () => {
   }
 };
 
+export const getShowtimes = async () => {
+  try {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(MOCK_SHOWTIMES), 500);
+    });
+  } catch (error) {
+    console.error('Помилка отримання сеансів:', error);
+    throw error;
+  }
+};
+
 export const getMovieById = async (id) => {
   try {
     return new Promise((resolve, reject) => {
@@ -268,58 +279,58 @@ export const getMovieCast = async (movieId) => {
 
 const MOCK_SHOWTIMES = [
   // Фільм 1 — "Виживші. Вихід в пітьму"
-  { id: 1, movieId: 1, time: '18:00', date: '2024-05-10', hall: 'Зал 1', price: 120 },
-  { id: 2, movieId: 1, time: '20:30', date: '2024-05-10', hall: 'Зал 2', price: 150 },
-  { id: 3, movieId: 1, time: '15:00', date: '2024-05-11', hall: 'Зал 1', price: 100 },
-  { id: 4, movieId: 1, time: '17:45', date: '2024-05-11', hall: 'Зал 2', price: 130 },
+  { id: 1, movieId: 1, time: '18:00', date: '2024-05-10', hall: ' 1', price: 120 },
+  { id: 2, movieId: 1, time: '20:30', date: '2024-05-10', hall: ' 2', price: 150 },
+  { id: 3, movieId: 1, time: '15:00', date: '2024-05-11', hall: ' 1', price: 100 },
+  { id: 4, movieId: 1, time: '17:45', date: '2024-05-11', hall: ' 2', price: 130 },
 
   // Фільм 2 — "Мишоловка"
-  { id: 5, movieId: 2, time: '19:00', date: '2024-05-11', hall: 'Зал 1', price: 130 },
-  { id: 6, movieId: 2, time: '21:00', date: '2024-05-11', hall: 'Зал 3', price: 160 },
-  { id: 7, movieId: 2, time: '16:30', date: '2024-05-12', hall: 'Зал 2', price: 110 },
-  { id: 8, movieId: 2, time: '18:15', date: '2024-05-12', hall: 'Зал 1', price: 125 },
+  { id: 5, movieId: 2, time: '19:00', date: '2024-05-11', hall: ' 1', price: 130 },
+  { id: 6, movieId: 2, time: '21:00', date: '2024-05-11', hall: ' 3', price: 160 },
+  { id: 7, movieId: 2, time: '16:30', date: '2024-05-12', hall: ' 2', price: 110 },
+  { id: 8, movieId: 2, time: '18:15', date: '2024-05-12', hall: ' 1', price: 125 },
 
   // Фільм 3 — "Такі дрібниці"
-  { id: 9, movieId: 3, time: '17:00', date: '2024-05-10', hall: 'Зал 1', price: 120 },
-  { id: 10, movieId: 3, time: '19:30', date: '2024-05-10', hall: 'Зал 2', price: 140 },
-  { id: 11, movieId: 3, time: '21:45', date: '2024-05-10', hall: 'Зал 3', price: 160 },
-  { id: 12, movieId: 3, time: '16:00', date: '2024-05-11', hall: 'Зал 2', price: 115 },
+  { id: 9, movieId: 3, time: '17:00', date: '2024-05-10', hall: ' 1', price: 120 },
+  { id: 10, movieId: 3, time: '19:30', date: '2024-05-10', hall: ' 2', price: 140 },
+  { id: 11, movieId: 3, time: '21:45', date: '2024-05-10', hall: ' 3', price: 160 },
+  { id: 12, movieId: 3, time: '16:00', date: '2024-05-11', hall: ' 2', price: 115 },
 
   // Фільм 4 — "Minecraft: Фільм"
-  { id: 13, movieId: 4, time: '15:00', date: '2024-05-12', hall: 'Зал 1', price: 110 },
-  { id: 14, movieId: 4, time: '17:30', date: '2024-05-12', hall: 'Зал 2', price: 135 },
-  { id: 15, movieId: 4, time: '20:00', date: '2024-05-12', hall: 'Зал 3', price: 155 },
-  { id: 16, movieId: 4, time: '22:30', date: '2024-05-12', hall: 'Зал 1', price: 145 },
+  { id: 13, movieId: 4, time: '15:00', date: '2024-05-12', hall: ' 1', price: 110 },
+  { id: 14, movieId: 4, time: '17:30', date: '2024-05-12', hall: ' 2', price: 135 },
+  { id: 15, movieId: 4, time: '20:00', date: '2024-05-12', hall: ' 3', price: 155 },
+  { id: 16, movieId: 4, time: '22:30', date: '2024-05-12', hall: ' 1', price: 145 },
 
   // Фільм 5 — "Киснева станція"
-  { id: 17, movieId: 5, time: '18:00', date: '2024-05-13', hall: 'Зал 2', price: 125 },
-  { id: 18, movieId: 5, time: '20:30', date: '2024-05-13', hall: 'Зал 3', price: 150 },
-  { id: 19, movieId: 5, time: '14:45', date: '2024-05-14', hall: 'Зал 1', price: 100 },
-  { id: 20, movieId: 5, time: '17:15', date: '2024-05-14', hall: 'Зал 2', price: 130 },
+  { id: 17, movieId: 5, time: '18:00', date: '2024-05-13', hall: ' 2', price: 125 },
+  { id: 18, movieId: 5, time: '20:30', date: '2024-05-13', hall: ' 3', price: 150 },
+  { id: 19, movieId: 5, time: '14:45', date: '2024-05-14', hall: ' 1', price: 100 },
+  { id: 20, movieId: 5, time: '17:15', date: '2024-05-14', hall: ' 2', price: 130 },
 
   // Фільм 6 — "Фатальний меседж"
-  { id: 21, movieId: 6, time: '16:00', date: '2024-05-11', hall: 'Зал 1', price: 115 },
-  { id: 22, movieId: 6, time: '18:30', date: '2024-05-11', hall: 'Зал 2', price: 130 },
-  { id: 23, movieId: 6, time: '21:00', date: '2024-05-11', hall: 'Зал 3', price: 150 },
-  { id: 24, movieId: 6, time: '17:15', date: '2024-05-12', hall: 'Зал 1', price: 120 },
+  { id: 21, movieId: 6, time: '16:00', date: '2024-05-11', hall: ' 1', price: 115 },
+  { id: 22, movieId: 6, time: '18:30', date: '2024-05-11', hall: ' 2', price: 130 },
+  { id: 23, movieId: 6, time: '21:00', date: '2024-05-11', hall: ' 3', price: 150 },
+  { id: 24, movieId: 6, time: '17:15', date: '2024-05-12', hall: ' 1', price: 120 },
 
   // Фільм 7 — "Аматор"
-  { id: 25, movieId: 7, time: '15:45', date: '2024-05-12', hall: 'Зал 2', price: 110 },
-  { id: 26, movieId: 7, time: '18:00', date: '2024-05-12', hall: 'Зал 3', price: 135 },
-  { id: 27, movieId: 7, time: '20:30', date: '2024-05-12', hall: 'Зал 1', price: 140 },
-  { id: 28, movieId: 7, time: '22:45', date: '2024-05-12', hall: 'Зал 2', price: 160 },
+  { id: 25, movieId: 7, time: '15:45', date: '2024-05-12', hall: ' 2', price: 110 },
+  { id: 26, movieId: 7, time: '18:00', date: '2024-05-12', hall: ' 3', price: 135 },
+  { id: 27, movieId: 7, time: '20:30', date: '2024-05-12', hall: ' 1', price: 140 },
+  { id: 28, movieId: 7, time: '22:45', date: '2024-05-12', hall: ' 2', price: 160 },
 
   // Фільм 8 — "Сплячі пси"
-  { id: 29, movieId: 8, time: '14:00', date: '2024-05-13', hall: 'Зал 1', price: 105 },
-  { id: 30, movieId: 8, time: '16:30', date: '2024-05-13', hall: 'Зал 2', price: 120 },
-  { id: 31, movieId: 8, time: '19:00', date: '2024-05-13', hall: 'Зал 3', price: 145 },
-  { id: 32, movieId: 8, time: '21:15', date: '2024-05-13', hall: 'Зал 1', price: 155 },
+  { id: 29, movieId: 8, time: '14:00', date: '2024-05-13', hall: ' 1', price: 105 },
+  { id: 30, movieId: 8, time: '16:30', date: '2024-05-13', hall: ' 2', price: 120 },
+  { id: 31, movieId: 8, time: '19:00', date: '2024-05-13', hall: ' 3', price: 145 },
+  { id: 32, movieId: 8, time: '21:15', date: '2024-05-13', hall: ' 1', price: 155 },
 
   // Фільм 9 — "Під замком"
-  { id: 33, movieId: 9, time: '13:30', date: '2024-05-14', hall: 'Зал 2', price: 95 },
-  { id: 34, movieId: 9, time: '16:00', date: '2024-05-14', hall: 'Зал 1', price: 110 },
-  { id: 35, movieId: 9, time: '18:45', date: '2024-05-14', hall: 'Зал 3', price: 130 },
-  { id: 36, movieId: 9, time: '21:00', date: '2024-05-14', hall: 'Зал 2', price: 140 },
+  { id: 33, movieId: 9, time: '13:30', date: '2024-05-14', hall: ' 2', price: 95 },
+  { id: 34, movieId: 9, time: '16:00', date: '2024-05-14', hall: ' 1', price: 110 },
+  { id: 35, movieId: 9, time: '18:45', date: '2024-05-14', hall: ' 3', price: 130 },
+  { id: 36, movieId: 9, time: '21:00', date: '2024-05-14', hall: ' 2', price: 140 },
 ];
 
 export const getSessions = async () => {
