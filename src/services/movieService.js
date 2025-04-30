@@ -54,7 +54,7 @@ const MOCK_MOVIES = [
   {
     id: 5,
     title: 'Киснева станція',
-    poster: 'https://premierakino.com.ua/wp-content/uploads/2025/03/os_poster_02_ua-min-scaled-400x650.jpg',
+    poster: 'https://dzygamdb.com/images/cache/projects/4857/big2_19673.jpg',
     rating: 8.3,
     overview: 'Мустафа Джемілєв, політичний в\'язень, працює на кисневій станції в засланні, що символізує його боротьбу та стійкість.',
     releaseDate: '2025-04-10',
