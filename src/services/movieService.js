@@ -46,7 +46,7 @@ const MOCK_MOVIES = [
     rating: 7.5,
     overview: 'Молода дівчина та її друзі потрапляють у світ Minecraft і мають знайти шлях назад, долаючи численні випробування.',
     releaseDate: '2025-04-03',
-    director: 'Джаред Хесс',
+    director: 'Джаред Хеcс',
     genres: ['Фентезі', 'Комедія'],
     duration: '1год 40хв',
     trailer: 'https://www.youtube.com/embed/DrmFheV9Pyk'
