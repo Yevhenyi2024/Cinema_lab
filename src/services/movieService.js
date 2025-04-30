@@ -338,3 +338,7 @@ export const getSessions = async () => {
     setTimeout(() => resolve(MOCK_SESSIONS), 500);
   });
 };
+
+if (!localStorage.getItem('kino_showtimes')) {
+  localStorage.setItem('kino_showtimes', JSON.stringify(MOCK_SHOWTIMES));
+}

@@ -8,6 +8,7 @@ import SearchPage from './components/pages/SearchPage';
 import SessionsPage from './components/pages/SessionsPage';
 import RegisterPage from './components/pages/RegisterPage';
 import LoginPage from './components/pages/LoginPage';
+import AdminPage from './components/pages/admin/AdminPage';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />
-      }
+      },
+      {
+        path: '/admin',
+        element: <AdminPage />
+      }      
     ]
   }
 ]);
