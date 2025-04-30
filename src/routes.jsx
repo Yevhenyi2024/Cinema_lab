@@ -6,6 +6,8 @@ import FavoritesPage from './components/pages/FavoritesPage';
 import NotFound from './components/pages/NotFound';
 import SearchPage from './components/pages/SearchPage';
 import SessionsPage from './components/pages/SessionsPage';
+import RegisterPage from './components/pages/RegisterPage';
+import LoginPage from './components/pages/LoginPage';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: 'sessions',
         element: <SessionsPage />
+      },
+      {
+        path: '/register',
+        element: <RegisterPage />
+      },
+      {
+        path: '/login',
+        element: <LoginPage />
       }
     ]
   }
