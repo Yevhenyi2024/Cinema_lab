@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AdminMovies from './AdminMovies';
+import AdminShowtimes from './AdminShowtimes';
 
 function AdminPage() {
   const [tab, setTab] = useState('movies');

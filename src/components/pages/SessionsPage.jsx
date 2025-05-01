@@ -70,7 +70,7 @@ function SessionsPage() {
                     Дата: {show.date} | Час: {show.time} | Зал: {show.hall} | Ціна: {show.price} грн
                   </p>
                 </div>
-                <button className="btn btn-secondary">Купити квиток</button>
+                <button className="btn btn-primary w-full sm:w-auto">Купити квиток</button>
               </div>
             );
           })}
