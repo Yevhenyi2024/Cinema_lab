@@ -9,6 +9,7 @@ import SessionsPage from './components/pages/SessionsPage';
 import RegisterPage from './components/pages/RegisterPage';
 import LoginPage from './components/pages/LoginPage';
 import AdminPage from './components/pages/admin/AdminPage';
+import ProtectedRoute from './components/common/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'favorites',
-        element: <FavoritesPage />
+        element: <ProtectedRoute><FavoritesPage /></ProtectedRoute>
       },
       {
         path: 'search',
@@ -46,8 +47,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin',
-        element: <AdminPage />
-      }      
+        element: <ProtectedRoute allowedRoles={['admin']}><AdminPage /></ProtectedRoute>
+      },      
     ]
   }
 ]);
