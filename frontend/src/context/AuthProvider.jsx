@@ -1,3 +1,4 @@
+// src/context/AuthProvider.jsx
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { loginUser as loginService, registerUser as registerService, logoutUser as logoutService, getCurrentUser } from '../services/authService';
 import LoadingSpinner from '../components/common/LoadingSpinner';
